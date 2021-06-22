@@ -3,7 +3,7 @@
     <!-- <Test></Test> -->
     <tabZujian></tabZujian>
 
-    <router-view/>
+    <!-- <router-view/> -->
   </div>
 </template>
 
