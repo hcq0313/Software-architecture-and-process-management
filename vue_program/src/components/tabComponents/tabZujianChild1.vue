@@ -4,7 +4,7 @@
       <el-menu
         style="
           border: solid 1px white;
-          box-shadow: 0 4px 8px #EAEAEA, 0 0 2px #EAEAEA, 0 0 2px #EAEAEA;
+          box-shadow: 0 4px 8px #eaeaea, 0 0 2px #eaeaea, 0 0 2px #eaeaea;
 
           margin: 6px;
           border-radius: 4px;
@@ -18,6 +18,7 @@
           <el-input
             style="width: 86%; margin-top: 18px"
             placeholder="请输入关键词"
+            v-model="search_school"
           >
             <i
               slot="suffix"
@@ -25,7 +26,10 @@
               style="font-size: 23px; margin-top: 9px"
             ></i>
           </el-input>
-          <el-button type="primary" style="width: 86%; margin-top: 15px"
+          <el-button
+            type="primary"
+            style="width: 86%; margin-top: 15px"
+            @click="search_sc()"
             >查询</el-button
           >
 
@@ -35,7 +39,16 @@
         </div>
       </el-menu>
     </el-col>
-    <div style="width: 81%; margin-top:8px; margin-left:19%;box-shadow: 0 4px 8px #EAEAEA, 0 0 2px #EAEAEA, 0 0 2px #EAEAEA;border-radius:4px;border:solid 1px white;">
+    <div
+      style="
+        width: 81%;
+        margin-top: 8px;
+        margin-left: 19%;
+        box-shadow: 0 4px 8px #eaeaea, 0 0 2px #eaeaea, 0 0 2px #eaeaea;
+        border-radius: 4px;
+        border: solid 1px white;
+      "
+    >
       <!-- <p align="left">自定义表头样式</p> -->
       <p
         style="
@@ -67,21 +80,21 @@
         :header-cell-style="tableHeaderColor"
         style="width: 100%"
       >
-        <el-table-column prop="lineid" label="序号" width="60">
+        <el-table-column prop="lineid" label="序号" width="60" align="center">
         </el-table-column>
-        <el-table-column prop="code" label="学校标识码" width="150">
+        <el-table-column prop="code" label="学校标识码" width="130" align="center">
         </el-table-column>
-        <el-table-column prop="schoolname" label="学校名称" width="120">
+        <el-table-column prop="schoolname" label="学校名称" width="150" align="center">
         </el-table-column>
-        <el-table-column prop="province" label="所在地区" width="110">
+        <el-table-column prop="province" label="所在地区" width="90" align="center">
         </el-table-column>
-        <el-table-column prop="city" label="所在城市" width="110">
+        <el-table-column prop="city" label="所在城市" width="90" align="center">
         </el-table-column>
-        <el-table-column prop="department" label="主管部门" width="120">
+        <el-table-column prop="department" label="主管部门" width="150" align="center">
         </el-table-column>
-        <el-table-column prop="level" label="办学层次" width="120">
+        <el-table-column prop="level" label="办学层次" width="90" align="center">
         </el-table-column>
-        <el-table-column prop="type" label="高校类型"> </el-table-column>
+        <el-table-column prop="type" label="高校类型" align="center"> </el-table-column>
       </el-table>
     </div>
   </el-row>
@@ -91,7 +104,6 @@
 export default {
   data() {
     return {
-      
       tableData: [
         {
           lineid: "1",
@@ -104,14 +116,7 @@ export default {
           type: "一流大学A类,985,211",
         },
       ],
-      Datatitle:[
-                    {
-          lineid: "1",
-          
-        },
-      ]
-
-      
+      search_school: "",
     };
   },
 
@@ -125,7 +130,25 @@ export default {
     goTo(path) {
       this.$router.replace(path);
     },
-        //设置表格行的样式
+    search_sc() {
+      console.log("search_school:", this.search_school);
+      // console.log('我执行啦')
+      this.$axios({
+        url: "/findNameUnversity",
+        method: "post",
+        params: { start: 1,searcherName: this.search_school},
+      })
+        .then(
+          (response) => (
+            (this.tableData = response.data.records),
+            (this.totalPage = response.data.pages)
+          )
+        )
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    //设置表格行的样式
     tableRowStyle({ row, rowIndex }) {
       return "background-color:pink;font-size:15px;";
     },
@@ -133,6 +156,22 @@ export default {
     tableHeaderColor({ row, column, rowIndex, columnIndex }) {
       return "background-color:lightblue;color:#fff;font-size:16px;text-align:center";
     },
+  },
+  mounted() {
+    this.$axios({
+      url: "/unversity",
+      method: "post",
+      params: { start: 1 },
+    })
+      .then(
+        (response) => (
+          (this.tableData = response.data.records),
+          (this.totalPage = response.data.pages)
+        )
+      )
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>

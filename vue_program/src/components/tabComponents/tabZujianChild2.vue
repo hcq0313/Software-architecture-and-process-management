@@ -21,8 +21,8 @@
            
             <el-menu-item index="1-1" style="margin-top:-14px"  @click="goTo('/First_class')">一流大学</el-menu-item>
             <el-menu-item index="1-2"  @click="goTo('/Subject')">一流学科</el-menu-item>
-            <el-menu-item index="1-3">985高校</el-menu-item>
-            <el-menu-item index="1-4" style="margin-buttom:0px">211高校</el-menu-item>
+            <el-menu-item index="1-3" @click="goTo('/school985')">985高校</el-menu-item>
+            <el-menu-item index="1-4" style="margin-buttom:0px" @click="goTo('/school211')">211高校</el-menu-item>
 
           </el-menu-item-group>
 
@@ -36,15 +36,15 @@
           </template>
           <el-menu-item-group :span="2" style="background-color:#F8F8F8;">
            
-            <el-menu-item index="2-1" style="margin-top:-14px">北京市</el-menu-item>
-            <el-menu-item index="2-2">四川省</el-menu-item>
-            <el-menu-item index="2-3">天津市</el-menu-item>
-            <el-menu-item index="2-4">河北省</el-menu-item>
-            <el-menu-item index="2-5">山西省</el-menu-item>
-            <el-menu-item index="2-6">内蒙古自治区</el-menu-item>
-            <el-menu-item index="2-7">辽宁省</el-menu-item>
-            <el-menu-item index="2-8">吉林省</el-menu-item>
-            <el-menu-item index="2-9">黑龙江省</el-menu-item>
+            <el-menu-item index="2-1" style="margin-top:-14px" @click="goTo('/beijing')">北京市</el-menu-item>
+            <el-menu-item index="2-2" @click="goTo('/sichuan')">四川省</el-menu-item>
+            <el-menu-item index="2-3" @click="goTo('/tianjin')">天津市</el-menu-item>
+            <el-menu-item index="2-4" @click="goTo('/hebei')">河北省</el-menu-item>
+            <el-menu-item index="2-5" @click="goTo('/shanxi')">山西省</el-menu-item>
+            <el-menu-item index="2-6" @click="goTo('/neimeng')">内蒙古自治区</el-menu-item>
+            <el-menu-item index="2-7" @click="goTo('/liaoning')">辽宁省</el-menu-item>
+            <el-menu-item index="2-8" @click="goTo('/jilin')">吉林省</el-menu-item>
+            <el-menu-item index="2-9" @click="goTo('/heilongjiang')">黑龙江省</el-menu-item>
             <el-menu-item index="2-10">上海市</el-menu-item>
             <el-menu-item index="2-11">江苏省</el-menu-item>
             <el-menu-item index="2-12">浙江省</el-menu-item>

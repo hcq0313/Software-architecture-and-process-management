@@ -67,6 +67,19 @@ export default {
       return "background-color:lightblue;color:#fff;font-size:16px;text-align:center";
     },
   },
+      mounted() {
+        this.$axios({
+            url:"/unversity",
+            method: 'post',
+            params: {start:1}
+          })
+            .then(response=>(
+            this.tableData = response.data.records,
+              this.totalPage= response.data.pages
+          )).catch(error=>{
+              console.log(error)
+          })
+    },
 };
 </script>
 <style>

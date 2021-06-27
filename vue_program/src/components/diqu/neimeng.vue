@@ -22,7 +22,7 @@
             margin-left: 8px;
           "
         ></i
-        >&nbsp;一流大学
+        >&nbsp;内蒙古自治区
       </p>
       <el-table
         :data="tableData"
@@ -52,47 +52,44 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      
-      tableData: [
-        {
-          lineid: "1",
-          code: "4111010001",
-          schoolname: "北京大学",
-          province: "北京市",
-          city: "北京市",
-          department: "教育部",
-          level: "本科",
-          type: "一流大学A类,985,211",
-        },
-      ],
-      Datatitle:[
-                    {
-          lineid: "1",
-          
-        },
-      ]
-
-      
-    };
-  },
-  methods: {
-    //设置表格行的样式
-    tableRowStyle({ row, rowIndex }) {
-      return "background-color:pink;font-size:15px;";
+import axios from 'axios'
+    export default {
+    data() {
+        return {
+        tableData: [
+            {
+            lineid: "1",
+            code: "4111010001",
+            schoolname: "北京大学",
+            province: "北京市",
+            city: "北京市",
+            department: "教育部",
+            level: "本科",
+            type: "一流大学A类,985,211",
+            },
+        ],
+        Datatitle: [
+            {
+            lineid: "1",
+            },
+        ],
+        };
     },
-    //设置表头行的样式
-    tableHeaderColor({ row, column, rowIndex, columnIndex }) {
-      return "background-color:lightblue;color:#fff;font-size:16px;text-align:center";
+    methods: {
+        //设置表格行的样式
+        tableRowStyle({ row, rowIndex }) {
+        return "background-color:pink;font-size:15px;";
+        },
+        //设置表头行的样式
+        tableHeaderColor({ row, column, rowIndex, columnIndex }) {
+        return "background-color:lightblue;color:#fff;font-size:16px;text-align:center";
+        },
     },
-  },
-      mounted() {
+    mounted() {
         this.$axios({
-            url:"/findAllByType",
+            url:"/findAllByProvince",
             method: 'post',
-            params: {start:1,type:'一流大学'}
+            params: {start:1,province:'内蒙'}
           })
             .then(response=>(
             this.tableData = response.data.records,
@@ -101,9 +98,7 @@ export default {
               console.log(error)
           })
     },
-
-};
+    };
 </script>
 <style>
-
 </style>
