@@ -1,4 +1,4 @@
-package dlmn.xfj.entity;
+package dlmn.hcq.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -9,14 +9,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-/**
- * <p>
- *
- * </p>
- *
- * @author wkx
- * @since 2021-06-12
- */
+
 @Data
 @TableName("university")
 @ApiModel(value="university", description="")

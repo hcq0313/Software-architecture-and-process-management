@@ -1,12 +1,12 @@
-package dlmn.xfj.service.impl;
+package dlmn.hcq.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import dlmn.xfj.entity.Unversity;
-import dlmn.xfj.mapper.UnversityMapper;
-import dlmn.xfj.service.UnversityService;
+import dlmn.hcq.entity.Unversity;
+import dlmn.hcq.mapper.UnversityMapper;
+import dlmn.hcq.service.UnversityService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

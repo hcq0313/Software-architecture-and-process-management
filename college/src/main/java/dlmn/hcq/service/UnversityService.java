@@ -1,17 +1,10 @@
-package dlmn.xfj.service;
+package dlmn.hcq.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import dlmn.xfj.entity.Unversity;
+import dlmn.hcq.entity.Unversity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
-/**
- * <p>
- *  服务类
- * </p>
- *
- * @author wkx
- * @since 2021-06-12
- */
+
 public interface UnversityService extends IService<Unversity> {
 
     //查询全部

@@ -1,4 +1,4 @@
-package dlmn.xfj;
+package dlmn.hcq;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

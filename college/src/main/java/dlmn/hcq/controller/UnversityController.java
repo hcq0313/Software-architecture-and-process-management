@@ -1,9 +1,9 @@
-package dlmn.xfj.controller;
+package dlmn.hcq.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import dlmn.xfj.entity.Unversity;
-import dlmn.xfj.service.UnversityService;
+import dlmn.hcq.entity.Unversity;
+import dlmn.hcq.service.UnversityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

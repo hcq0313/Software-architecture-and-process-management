@@ -1,4 +1,4 @@
-package dlmn.xfj;
+package dlmn.hcq;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -10,8 +10,8 @@ import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import dlmn.xfj.entity.Unversity;
-import dlmn.xfj.mapper.UnversityMapper;
+import dlmn.hcq.entity.Unversity;
+import dlmn.hcq.mapper.UnversityMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,7 +37,7 @@ class UniversityApplicationTests {
         //设置输出路径
         gc.setOutputDir(projectPath+"/src/main/java");
         //设置作者
-        gc.setAuthor("wkx");
+        gc.setAuthor("hcq");
         //打开资源管理器，就是文件夹
         gc.setOpen(false);
         //是否覆盖原来生成的文件包
@@ -69,7 +69,7 @@ class UniversityApplicationTests {
         //包的配置
         PackageConfig pc = new PackageConfig();
         //次级目录
-        pc.setModuleName("wkx");
+        pc.setModuleName("hcq");
         //最大包
         pc.setParent("com.dlmn");
         pc.setController("controller");
